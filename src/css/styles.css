@@ -1,0 +1,46 @@
+body{
+    font-family: "gameFontBold";
+}
+
+#logo{
+    text-align:center; 
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to left, #092d79, #ed3df9);
+}
+
+.gridCell{
+    height:10%;
+    width:10%;
+    background-color:white;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(to left, #092d79, #ed3df9);
+    float: left;
+    
+}
+.gridCell:hover{
+    background-color:#ed3df9;
+
+}
+.gridCell img {
+   width:50px;
+   height: 50px;
+}
+.gameGrid{
+    height:600px;
+    width:600px;
+}
+
+.obstacle{
+    background-color:rgba(42,11,31,0.3);
+}
+.obstacle:hover{
+    background-color:rgba(42,11,31,0.3);
+}
+
+.highlight{
+    background-color:rgba(213,58,157,0.3);
+}
