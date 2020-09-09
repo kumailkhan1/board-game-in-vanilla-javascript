@@ -139,7 +139,7 @@ function startFight(turn) {
                 if (grid1.playersArray[1].health <= 0) {
                     console.log("Player 1 Won!");
                 }
-
+//safasf
             }
             else if (wpn === "dagger") {
                 grid1.playersArray[1].health = grid1.playersArray[1].health - 10;
