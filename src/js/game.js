@@ -1,7 +1,6 @@
 import Grid from './grid.js';
 import Weapon from './weapon.js';
 
-
 const parentGrid = document.getElementById("gameGrid");
 const grid1 = new Grid(10, 10);
 grid1.generateGrid();
