@@ -6,6 +6,8 @@ import pistolImg from "../images/pistol.png"
 import daggerImg from "../images/dagger.png"
 import rocketImg from "../images/rocket.png"
 import grenadeImg from "../images/grenade.png"
+import player1Img from "../images/player1.png"
+import player2Img from "../images/player2.png"
 
 export default class Grid {
     coords = Coordinates;
@@ -19,8 +21,8 @@ export default class Grid {
         new Weapon("grenade",grenadeImg)
     ];
     playersArray = [
-        new Player("Player 1", 100, "src/images/player1.png"),
-        new Player("Player 2", 100, "src/images/player2.png")
+        new Player("Player 1", 100, player1Img),
+        new Player("Player 2", 100, player2Img)
     ];
 
     constructor(rows = 10, cols = 10) {
