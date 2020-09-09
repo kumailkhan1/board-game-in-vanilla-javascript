@@ -122,6 +122,7 @@ function startFight(turn) {
 
             startFight(1);
         };
+        
         player2Defend.onclick = function () {
             console.log("Player 2 Defended");
             startFight(1);
