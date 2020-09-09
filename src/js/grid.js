@@ -2,6 +2,10 @@ import "./../css/styles.css";
 import Player from "./player.js"
 import Weapon from './weapon.js';
 import Coordinates from "./Coordinates.js";
+import pistolImg from "../images/pistol.png"
+import daggerImg from "../images/dagger.png"
+import rocketImg from "../images/rocket.png"
+import grenadeImg from "../images/grenade.png"
 
 export default class Grid {
     coords = Coordinates;
@@ -9,10 +13,10 @@ export default class Grid {
     cols;
     cellType;
     weaponsArray = [
-        new Weapon("pistol", "src/images/pistol.png"),
-        new Weapon("dagger", "src/images/dagger.png"),
-        new Weapon("rocket", "src/images/rocket.png"),
-        new Weapon("grenade", "src/images/grenade.png")
+        new Weapon("pistol", pistolImg ),
+        new Weapon("dagger", daggerImg ),
+        new Weapon("rocket", rocketImg ),
+        new Weapon("grenade",grenadeImg)
     ];
     playersArray = [
         new Player("Player 1", 100, "src/images/player1.png"),
