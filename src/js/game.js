@@ -62,8 +62,31 @@ function startGame(turn) {
                 grid1.playersArray[turn].updateWeaponAndDamage(grid1.playersArray[turn].name, weapon);
 
             }
-            if ((grid1.coords.player[0][0] === grid1.coords.player[1][0]) || (grid1.coords.player[0][1] === grid1.coords.player[1][1])) {
-                console.log("Players are in same row or column");
+            let player1_xPos = grid1.coords.player[0][0];
+            let player1_yPos = grid1.coords.player[0][1];
+            let player2_xPos = grid1.coords.player[1][0];
+            let player2_yPos = grid1.coords.player[1][1];
+
+            // Checking if players are in adjacent columns
+            if (player1_yPos === (player2_yPos + 1) && player1_xPos === player2_xPos ){
+                console.log("Players are in same row.");
+                startFight(turn);
+                return;
+            }
+            if (player1_yPos === (player2_yPos - 1) && player1_xPos === player2_xPos) {
+                console.log("Players are in same row.");
+                startFight(turn);
+                return;
+            }
+
+            // Checking if players are in adjacent rows
+            if (player1_xPos === (player2_xPos + 1) && player1_yPos === player2_yPos) {
+                console.log("Players are in same column.");
+                startFight(turn);
+                return;
+            }
+            if (player1_xPos === (player2_xPos - 1) && player1_yPos === player2_yPos) {
+                console.log("Players are in same column.");
                 startFight(turn);
                 return;
             }
@@ -121,13 +144,13 @@ function startFight(turn) {
 
             startFight(1);
         };
-        
+
         player2Defend.onclick = function () {
             console.log("Player 2 Defended");
             startFight(1);
         };
     }
-    
+
     else if (turn === 1) {
         showButton(player1Attack);
         showButton(player1Defend);
@@ -139,7 +162,7 @@ function startFight(turn) {
                 if (grid1.playersArray[1].health <= 0) {
                     console.log("Player 1 Won!");
                 }
-//safasf
+                //safasf
             }
             else if (wpn === "dagger") {
                 grid1.playersArray[1].health = grid1.playersArray[1].health - 10;
