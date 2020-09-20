@@ -15,16 +15,15 @@ body{
     border-image-source: linear-gradient(to left, #092d79, #ed3df9);
 }
 
-.gridCell{
-    height:10%;
-    width:10%;
-    background-color:white;
+.gridCell {
+    height: 10%;
+    width: 10%;
+    background-color: white;
     border: 10px solid;
     border-image-slice: 1;
     border-width: 1px;
     border-image-source: linear-gradient(to left, #092d79, #ed3df9);
     float: left;
-    
 }
 
 .gridCell:hover{

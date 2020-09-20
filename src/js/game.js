@@ -68,7 +68,7 @@ function startGame(turn) {
             let player2_yPos = grid1.coords.player[1][1];
 
             // Checking if players are in adjacent columns
-            if (player1_yPos === (player2_yPos + 1) && player1_xPos === player2_xPos ){
+            if (player1_yPos === (player2_yPos + 1) && player1_xPos === player2_xPos) {
                 console.log("Players are in same row.");
                 startFight(turn);
                 return;
@@ -99,54 +99,39 @@ function startGame(turn) {
     };
 
 }
-
+var playersMoves = {
+    player1Dfd: false,
+    player2Dfd: false,
+    player1attk: false,
+    player2attk: false,
+    wpn1: null,
+    wpn2: null
+}
 function startFight(turn) {
     //Hiding all Buttons 
+
     hideAllButtons();
     //Checking which player has the turn, if player 1 moved last, then fight will start from player 2 and vice versa
+
     if (turn === 0) {
         showButton(player2Attack);
         showButton(player2Defend);
         player2Attack.onclick = function () {
             console.log("Player 2 Attacked");
-            let wpn = grid1.playersArray[1].currentWeapon;
-            if (wpn === "stone") {
-                grid1.playersArray[0].health = grid1.playersArray[0].health - 5;
-                if (grid1.playersArray[0].health <= 0) {
-                    console.log("Player 2 Won!");
-                }
-
-            }
-            else if (wpn === "dagger") {
-                grid1.playersArray[0].health = grid1.playersArray[0].health - 10;
-                if (grid1.playersArray[0].health <= 0) {
-                    console.log("Player 2 Won!");
-                }
-            }
-            else if (wpn === "pistol") {
-                grid1.playersArray[0].health = grid1.playersArray[0].health - 15;
-                if (grid1.playersArray[0].health <= 0) {
-                    console.log("Player 2 Won!");
-                }
-            }
-            else if (wpn === "rocket") {
-                grid1.playersArray[0].health = grid1.playersArray[0].health - 35;
-                if (grid1.playersArray[0].health <= 0) {
-                    console.log("Player 2 Won!");
-                }
-            }
-            else if (wpn === "grenade") {
-                grid1.playersArray[0].health = grid1.playersArray[0].health - 20;
-                if (grid1.playersArray[0].health <= 0) {
-                    console.log("Player 2 Won!");
-                }
-            }
-
+            playersMoves.player2attk = true;
+            playersMoves.wpn2 = grid1.playersArray[1].currentWeapon;
+            checkMoves(playersMoves);
+            console.log(playersMoves);
             startFight(1);
         };
 
         player2Defend.onclick = function () {
             console.log("Player 2 Defended");
+            console.log(playersMoves);
+            playersMoves.player2Dfd = true;
+            playersMoves.wpn2 = grid1.playersArray[1].currentWeapon;
+            checkMoves(playersMoves);
+            console.log(playersMoves);
             startFight(1);
         };
     }
@@ -156,45 +141,21 @@ function startFight(turn) {
         showButton(player1Defend);
         player1Attack.onclick = function () {
             console.log("Player 1 Attacked");
-            let wpn = grid1.playersArray[0].currentWeapon;
-            if (wpn === "stone") {
-                grid1.playersArray[1].health = grid1.playersArray[1].health - 5;
-                if (grid1.playersArray[1].health <= 0) {
-                    console.log("Player 1 Won!");
-                }
-                //safasf
-            }
-            else if (wpn === "dagger") {
-                grid1.playersArray[1].health = grid1.playersArray[1].health - 10;
-                if (grid1.playersArray[1].health <= 0) {
-                    console.log("Player 1 Won!");
-                }
-            }
-            else if (wpn === "pistol") {
-                grid1.playersArray[1].health = grid1.playersArray[1].health - 15;
-                if (grid1.playersArray[1].health <= 0) {
-                    console.log("Player 1 Won!");
-                }
-            }
-            else if (wpn === "rocket") {
-                grid1.playersArray[1].health = grid1.playersArray[1].health - 35;
-                if (grid1.playersArray[1].health <= 0) {
-                    console.log("Player 1 Won!");
-                }
-            }
-            else if (wpn === "grenade") {
-                grid1.playersArray[1].health = grid1.playersArray[1].health - 20;
-                if (grid1.playersArray[1].health <= 0) {
-                    console.log("Player 1 Won!");
-                }
-            }
+            playersMoves.player1attk = true;
+            playersMoves.wpn1 = grid1.playersArray[0].currentWeapon;
+            checkMoves(playersMoves);
+            console.log(playersMoves);
             startFight(0);
         };
         player1Defend.onclick = function () {
             console.log("Player 1 Defended");
+            playersMoves.player1Dfd = true;
+            playersMoves.wpn1 = grid1.playersArray[0].currentWeapon;
+            checkMoves(playersMoves);
             startFight(0);
         };
     }
+
 
 }
 
@@ -236,5 +197,62 @@ function showButton(x) {
 
 }
 
+function checkMoves(playersMoves){
+    let player1Health = document.getElementById("player1-health");
+    let player2Health = document.getElementById("player2-health");
+
+    if (playersMoves.player1attk && playersMoves.player2attk) {
+        //Both Health should decrease
+        grid1.playersArray[0].health = grid1.playersArray[0].health - playersMoves.wpn2.damage; //Decreasing player 1 health
+        grid1.playersArray[1].health = grid1.playersArray[1].health - playersMoves.wpn1.damage; // Decreasing player 2 health
+        //Updating the UI
+        if(grid1.playersArray[0].health <=0){
+            grid1.playersArray[0].health = 0;
+            alert("Player 2 Won!");
+        }
+        else if(grid1.playersArray[1].health <= 0){
+            grid1.playersArray[1].health = 0;
+            alert("Player 1 Won!");
+        }
+        console.log("Both Attacked");
+        player1Health.innerText = grid1.playersArray[0].health ;
+        player2Health.innerText = grid1.playersArray[1].health ;
+
+        playersMoves.player1attk = false;
+        playersMoves.player2attk = false;
+    }
+    else if (playersMoves.player1attk && playersMoves.player2Dfd) {
+        //Only Player 2 health decreases by half of player 1 weopons damage
+        console.log("Player 2 defended");
+        grid1.playersArray[1].health = grid1.playersArray[1].health - Math.ceil(playersMoves.wpn1.damage / 2);
+        if(grid1.playersArray[1].health <= 0){
+            grid1.playersArray[1].health = 0;
+            alert("Player 1 Won!");
+        
+        }
+        player2Health.innerText = grid1.playersArray[1].health ;
+       
+        playersMoves.player1attk = false;
+        playersMoves.player2Dfd = false;
+    }
+    else if (playersMoves.player1Dfd && playersMoves.player2attk) {
+        //Only player 1 health decreases by half
+        console.log("Player 1 defended");
+        grid1.playersArray[0].health = grid1.playersArray[0].health - Math.ceil(playersMoves.wpn2.damage / 2);
+        if(grid1.playersArray[0].health <=0){
+            grid1.playersArray[0].health = 0;
+            alert("Player 2 Won!");
+        }
+        player1Health.innerText = grid1.playersArray[0].health ;
+        playersMoves.player1Dfd = false;
+        playersMoves.player2attk = false;
+    }
+    else if (playersMoves.player1Dfd && playersMoves.player2Dfd) {
+        //Nothing happens
+        console.log("Both player defended!");
+        playersMoves.player1Dfd = false;
+        playersMoves.player2Dfd = false;
+    }
+}
 startGame(turn);
 

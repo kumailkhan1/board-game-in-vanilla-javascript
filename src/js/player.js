@@ -6,7 +6,9 @@ export default class Player {
     health;
     currentWeapon;
     imageUrl;
-    constructor(name, health = 100, image, weapon = "stone") {
+    constructor(name, health = 100, image, weapon = { name:"Stone",
+    damage:5
+    }) {
         this.name = name;
         this.health = health;
         this.imageUrl = image;
@@ -103,8 +105,8 @@ export default class Player {
     initializeWeapon() {
         let playerWeapon1 = document.getElementById("player1-weapon");
         let playerWeapon2 = document.getElementById("player2-weapon");
-        playerWeapon1.innerText = this.currentWeapon;
-        playerWeapon2.innerText = this.currentWeapon;
+        playerWeapon1.innerText = this.currentWeapon.name;
+        playerWeapon2.innerText = this.currentWeapon.name;
     }
 
     
@@ -117,7 +119,7 @@ export default class Player {
             playerWeapon = document.getElementById("player2-weapon");
         }
         console.log(weapon);
-        this.currentWeapon = weapon.name;
+        this.currentWeapon = weapon;
         // let img = document.createElement("img");
         // img.src = "http://localhost:8080/src/images/"+weapon+".png";
         // playerWeapon.appendChild(img);
@@ -132,7 +134,4 @@ export default class Player {
         playerDamage.innerText = weapon.damage;
     }
 
-    updateHealth(){
-
-    }
 }
