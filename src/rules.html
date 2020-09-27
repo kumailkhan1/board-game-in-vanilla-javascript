@@ -1,0 +1,109 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Rules</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1 id="logo">How to Play
+                        <span id="rules"><a href="./index.html">Go back!</a></span>
+                    </h1>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Game Features:</h1>
+                    <p>The Game has following features:</p>
+                    <h2>Weapons</h2>
+                    <p>There are a total of 4 different weapons placed on random spots on the Grid. The weapons and the
+                        damage they do are as
+                        follows:
+                    </p>
+                    <ol>
+                        <li><span class="weapons-title">Stone</span> (default): This is a default weapon that both
+                            players start with. Damage: -5
+                        </li>
+                        <li><b>dagger</b> Damage: -10 <span><img src="./images/dagger.png" width="30px"
+                                    height="30px"></span></li>
+                        <li><b>Pistol</b> Damage: -15 <span><img src="./images/pistol.png" width="30px"
+                                    height="30px"></span></li>
+                        <li><b>Grenade</b> Damage: -20 <span><img src="./images/grenade.png" width="30px"
+                                    height="30px"></span></li>
+                        <li><b>Rocket</b> Damage: -35 <span><img src="./images/rocket.png" width="30px"
+                                    height="30px"></span></li>
+
+                    </ol>
+
+                    <h2>Rules</h2>
+                    <p>The Rules of the game are quite simple.</p>
+                    <ul>
+                        <li>There is a 10x10 Grid for player movements.</li>
+                        <li>There are a total of <b>10 obstacles</b> and <b>4 different weapons</b>, randomly placed on
+                            the grid.</li>
+                        <li>The players can move freely in all four directions (up,down,right,left) except diagonally.
+                        </li>
+                        <li>If there are any obstacles in the way of the player, it can not move past the obstacle and
+                            the movements would be
+                            restricted.
+                        </li>
+                        <li>If the player moves to the tile, where a weapon is placed, the player's weapon will be
+                            swapped.</li>
+                        <li>If both the players come next to each other, the fight will start!</li>
+                    </ul>
+                    <h2>Players</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="card animate__animated animate__backInLeft" style="width: 18rem;">
+                        <img class="card-img-top" height="300px" width="300px" src="./images/player1.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Josh</h5>
+                            <p class="card-text">Josh has been trained as an assasin since he was just 7 years old. He is sharp, clever 
+                                and lethal with a dagger!
+                            </p>
+                        </div>
+                
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card animate__animated animate__backInLeft" style="width: 18rem;">
+                        <img class="card-img-top" height="300px" width="290px" src="./images/player2.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Hazel</h5>
+                            <p class="card-text">Hazel's life became horrible when he lost his entire family to a group of assasins at an age of just 5. 
+                                Now he just wants his revenge! He is good with RPGs and grenades!
+                            </p>
+                        </div>
+                
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

@@ -59,6 +59,10 @@ module.exports = {
       new HtmlWebpackPlugin({
           template:"./src/index.html"
       }),
+      new HtmlWebpackPlugin({  // Also generate a test.html
+        filename: 'rules.html',
+        template: './src/rules.html'
+      }),
       new CleanWebpackPlugin(),
   ]
 };

@@ -208,11 +208,16 @@ function checkMoves(playersMoves){
         //Updating the UI
         if(grid1.playersArray[0].health <=0){
             grid1.playersArray[0].health = 0;
-            alert("Player 2 Won!");
+            setTimeout(()=>{
+                alert("Player 2 Won!");
+            },500);
         }
         else if(grid1.playersArray[1].health <= 0){
             grid1.playersArray[1].health = 0;
-            alert("Player 1 Won!");
+            setTimeout(()=>{
+                alert("Player 1 Won!");
+            },500);
+            
         }
         console.log("Both Attacked");
         player1Health.innerText = grid1.playersArray[0].health ;

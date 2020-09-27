@@ -1,0 +1,6 @@
+things to keep in mind
+
+every file should be 150 - 200 lines max
+(split your codebase)
+
+Read-only friday

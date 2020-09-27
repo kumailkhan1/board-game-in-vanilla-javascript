@@ -1,18 +1,32 @@
 @font-face {
     font-family: gameFontBold;
     src: url("./../../player1upbold.ttf");
+    font-weight: bolder;
+}
+@font-face {
+    font-family: gameFontBolder;
+    src: local('Player 1 Up Bold') url("./../../player1upbold.ttf");
+    font-weight: bolder;
 }
 
 body{
     font-family: "gameFontBold";
 }
+   
 
 #logo{
-    text-align:center; 
+    text-align: center;
     border: 10px solid;
     border-image-slice: 1;
     border-width: 5px;
     border-image-source: linear-gradient(to left, #092d79, #ed3df9);
+}
+#rules{
+    text-align: right;
+    font-size: medium;
+}
+#rules a{
+    color:#ed3df9;
 }
 
 .gridCell {
