@@ -232,7 +232,9 @@ function checkMoves(playersMoves){
         grid1.playersArray[1].health = grid1.playersArray[1].health - Math.ceil(playersMoves.wpn1.damage / 2);
         if(grid1.playersArray[1].health <= 0){
             grid1.playersArray[1].health = 0;
-            alert("Player 1 Won!");
+            setTimeout(()=>{
+                alert("Player 1 Won!");
+            },500);
         
         }
         player2Health.innerText = grid1.playersArray[1].health ;
@@ -246,7 +248,9 @@ function checkMoves(playersMoves){
         grid1.playersArray[0].health = grid1.playersArray[0].health - Math.ceil(playersMoves.wpn2.damage / 2);
         if(grid1.playersArray[0].health <=0){
             grid1.playersArray[0].health = 0;
-            alert("Player 2 Won!");
+            setTimeout(()=>{
+                alert("Player 1 Won!");
+            },500);
         }
         player1Health.innerText = grid1.playersArray[0].health ;
         playersMoves.player1Dfd = false;
