@@ -8,6 +8,7 @@ export default class Weapon{
             this.damage = 10;
             this.imageSrc = imageSrc;
         }
+        
         if (name === "pistol"){
             this.name = name;
             this.damage = 15;
