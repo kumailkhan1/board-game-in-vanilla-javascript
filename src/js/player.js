@@ -16,6 +16,7 @@ export default class Player {
         this.initiliazeHealth();
         this.initializeWeapon();
     }
+    
 
     highlightMoves(playerNum, coords) {
         let steps = 1;
