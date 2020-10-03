@@ -26,7 +26,7 @@ export default class Player {
         //Forward
         while (steps <= 3 && obstacleDetected) {
             if ((player_y + steps) <= 9) {
-                if (coords.available[player_x][player_y + steps][2] !== "obstacle") {
+                if (coords.available[player_x][player_y + steps][2] !== "obstacle" && coords.available[player_x][player_y + steps][2] !== "player") {
                     const highlight = document.getElementById("gridCell" + player_x + "-" + (player_y + steps));
                     // coords.highlighted.push([player_x,(player_y + steps)])
                     if (highlight !== null) highlight.classList.add("highlight");
@@ -43,7 +43,7 @@ export default class Player {
         obstacleDetected = true;
         while (steps <= 3 && obstacleDetected) {
             if ((player_y - steps) >= 0) {
-                if (coords.available[player_x][player_y - steps][2] !== "obstacle") {
+                if (coords.available[player_x][player_y - steps][2] !== "obstacle" && coords.available[player_x][player_y - steps][2] !== "player") {
                     const highlight = document.getElementById("gridCell" + player_x + "-" + (player_y - steps));
                     // coords.highlighted.push([player_x,(player_y - steps)])
                     if (highlight !== null) highlight.classList.add("highlight");
@@ -63,7 +63,7 @@ export default class Player {
         obstacleDetected = true;
         while (steps <= 3 && obstacleDetected) {
             if ((player_x - steps) >= 0) {
-                if (coords.available[player_x - steps][player_y][2] !== "obstacle") {
+                if (coords.available[player_x - steps][player_y][2] !== "obstacle" && coords.available[player_x - steps][player_y][2] !== "player") {
                     const highlight = document.getElementById("gridCell" + (player_x - steps) + "-" + player_y);
                     // coords.highlighted.push([(player_x-steps),player_y])
                     if (highlight !== null) highlight.classList.add("highlight");
@@ -80,7 +80,7 @@ export default class Player {
         obstacleDetected = true;
         while (steps <= 3 && obstacleDetected) {
             if ((player_x + steps) <= 9) {
-                if (coords.available[player_x + steps][player_y][2] !== "obstacle") {
+                if (coords.available[player_x + steps][player_y][2] !== "obstacle" && coords.available[player_x + steps][player_y][2] !== "player") {
                     const highlight = document.getElementById("gridCell" + (player_x + steps) + "-" + player_y);
                     // coords.highlighted.push([(player_x+steps),player_y])
                     if (highlight !== null) highlight.classList.add("highlight");
@@ -112,10 +112,10 @@ export default class Player {
     
     updateWeaponAndDamage(playerName, weapon) {
         var playerWeapon;
-        if (playerName === "Player 1") {
+        if (playerName === "Josh") {
             playerWeapon = document.getElementById("player1-weapon");
         }
-        else if (playerName === "Player 2") {
+        else if (playerName === "Hazel") {
             playerWeapon = document.getElementById("player2-weapon");
         }
         console.log(weapon);
@@ -125,10 +125,10 @@ export default class Player {
         // playerWeapon.appendChild(img);
         playerWeapon.innerText = weapon.name;
         var playerDamage;
-        if (playerName === "Player 1") {
+        if (playerName === "Josh") {
             playerDamage = document.getElementById("player1-damage");
         }
-        else if (playerName === "Player 2") {
+        else if (playerName === "Hazel") {
             playerDamage = document.getElementById("player2-damage");
         }
         playerDamage.innerText = weapon.damage;

@@ -21,8 +21,8 @@ export default class Grid {
         new Weapon("grenade",grenadeImg)
     ];
     playersArray = [
-        new Player("Player 1", 100, player1Img),
-        new Player("Player 2", 100, player2Img)
+        new Player("Josh", 100, player1Img),
+        new Player("Hazel", 100, player2Img)
     ];
 
     constructor(rows = 10, cols = 10) {
@@ -95,6 +95,7 @@ export default class Grid {
                 this.coords.available[randomRow][randomCol][2] = weapon;
                 let img = document.createElement("img");
                 img.src = weapon.imageSrc;
+                img.id = "gridCell" + randomRow + "-" + randomCol;
                 // let text = weapon.name;
                 const gridCell = document.getElementById("gridCell" + randomRow + "-" + randomCol);
                 gridCell.appendChild(img);
